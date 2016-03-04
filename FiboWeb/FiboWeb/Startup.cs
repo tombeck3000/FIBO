@@ -5,7 +5,9 @@ using Owin;
 namespace FiboWeb
 {
     public partial class Startup {
-        public void Configuration(IAppBuilder app) {
+        public void Configuration(IAppBuilder app)
+        {
+            string fiboConnection = System.Configuration.ConfigurationManager.ConnectionStrings["FiboConnection"].ConnectionString;
             ConfigureAuth(app);
         }
     }
