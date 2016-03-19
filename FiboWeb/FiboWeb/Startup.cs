@@ -7,7 +7,7 @@ namespace FiboWeb
     public partial class Startup {
         public void Configuration(IAppBuilder app)
         {
-            string fiboConnection = System.Configuration.ConfigurationManager.ConnectionStrings["FiboConnection"].ConnectionString;
+            string fiboConnection = System.Configuration.ConfigurationManager.ConnectionStrings["fiboConnection"].ConnectionString;
             ConfigureAuth(app);
         }
     }

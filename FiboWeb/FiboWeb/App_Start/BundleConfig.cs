@@ -34,6 +34,9 @@ namespace FiboWeb
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                             "~/Scripts/modernizr-*"));
 
+            //bundles.Add(new ScriptBundle("~/bundles/CustomPageJs").Include(
+            //    "~/Scripts/Custom/CreateNewUserPage.js"));
+
             ScriptManager.ScriptResourceMapping.AddDefinition(
                 "respond",
                 new ScriptResourceDefinition

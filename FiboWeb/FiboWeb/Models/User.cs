@@ -15,7 +15,6 @@ namespace FiboWeb.Models
         private string _firstName;
         private string _lastName;
         private string _password;
-        private string _passwordHash;
 
         public int UserId
         {
@@ -46,7 +45,7 @@ namespace FiboWeb.Models
             get { return HashPassword(_password); }
             set { _password = value; }
         }
-
+        
         private static string HashPassword(string password)
         {
             byte[] passwordData = Encoding.ASCII.GetBytes(password);
@@ -59,7 +58,7 @@ namespace FiboWeb.Models
             List<User> allUser = new List<User>();
             string sql = "select * from [User]";
 
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["FiboConnection"].ConnectionString);
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["fiboConnection"].ConnectionString);
             con.Open();
 
 
@@ -87,7 +86,7 @@ namespace FiboWeb.Models
                 LoginName = reader["LoginName"].ToString(),
                 FirstName = reader["FirstName"].ToString(),
                 LastName = reader["LastName"].ToString(),
-                Password = "******"
+                Password = reader["PasswordHash"].ToString()
             };
 
         }
@@ -95,7 +94,7 @@ namespace FiboWeb.Models
         public bool RegisterUser()
         {
             string sql = "insert into [User] (LoginName, FirstName, LastName, PasswordHash) values (@loginName, @firstName, @lastName, @passwordHash)";
-            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["FiboConnection"].ConnectionString);
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["fiboConnection"].ConnectionString);
             con.Open();
 
             SqlCommand cmd = new SqlCommand

@@ -12,12 +12,6 @@
         </tr>
         <tr>
             <td><asp:Label runat="server" ID="lblFirstName">First Name:</asp:Label></td>
-            
-            
-            
-            
-            
-
             <td><asp:TextBox ID="txtFirstName" runat="server" /></td>
         </tr>
         <tr>
@@ -30,7 +24,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><asp:Button runat="server" ID="btnCreate" Text="Create" OnClick="btnCreate_Click"/></td>
+            <td><asp:Button runat="server" ID="btnCreate" Text="Create" OnClientClick="CreateNewUserJavaScript()"/></td>
         </tr>
     </table>
 
